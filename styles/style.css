@@ -2,28 +2,85 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  background-image: var(--background-image);
+  background-color: var(--bg-color, #000028);
 }
 
 .header {
   display: grid;
-  grid-template-rows: ;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* изменить макс инлайн сайз потом */
+  max-inline-size: 375px;
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 /* второй класс хэдэра */
 .decorated-zone {
+  position: relative;
+}
 
+.decorated-zone::before {
+  position: absolute;
+  content: "";
+  display: block;
+  /* поправить чем то резиновым */
+  top:10px;
+  right: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+  border-top: 1px solid var(--button-color);
+  border-right: 1px solid var(--button-color);
+}
+
+.decorated-zone::after {
+  position: absolute;
+  content: "";
+  display: block;
+  /* поправить пиксели чем то резиновым */
+  bottom: 10px;
+  left: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+  border-bottom: 1px solid var(--button-color);
+  border-left: 1px solid var(--button-color);
 }
 
 .header__rec-label {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  /* поправить пиксели чем то резиновым */
+  top: 12px;
+  right: 22px;
+  color: var(--button-color);
+}
 
+.header__rec-label::after {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  background-color: var(--button-color);
+  border-radius: 50%;
+  align-self: center;
+  box-shadow: 0px 0px 4px 2px var(--button-color);
 }
 
 .header__theme-menu {
-
+  justify-self: end;
+  /* заменить чем то нормальным */
+  margin-top: 63px;
+  margin-bottom: 50px;
 }
 
 .header__theme-menu-list {
-
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
 }
 
 .header__theme-menu-item {
@@ -31,7 +88,16 @@
 }
 
 .header__theme-menu-button {
-
+  background-color: transparent;
+  color: var(--button-color);
+  border: none;
+  text-transform: lowercase;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  width: 70px;
+  height: 26px;
 }
 
 .header__theme-menu-button_type_light {
@@ -39,7 +105,7 @@
 }
 
 .header__theme-menu-button_active {
-
+  outline: 1px solid var(--button-color);
 }
 
 .header__theme-menu-button_type_auto {
@@ -51,9 +117,25 @@
 }
 
 .header__title {
-
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 95.7px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--title-color, #DB00FF);
+  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
 }
 
-.header__text {
+.header__subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
 
+.title-decor {
+  background-color: var(--bg-accent-color, #FF0070);
+  color: var(--primary-subtitle-color, #000028);
 }

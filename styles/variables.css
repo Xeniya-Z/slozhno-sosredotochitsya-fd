@@ -3,6 +3,15 @@
   и их переопределение под различные устройства
 */
 :root {
-  --background-image: url("../images/cover-image-dark.png");
+  --bg-image: url("../images/cover-image-dark.png");
+  --bg-color: #000028;
+  --bg-accent-color: #FF0070;
+  --button-color: #FF0070;
+  --title-color: #DB00FF;
+  --primary-subtitle-color: #000028;
+  --secondary-subtitle-color: #FF0070;
+  --text-color: #F1B2CE;
+  --accent-color: #FF0070;
+
 }
 
