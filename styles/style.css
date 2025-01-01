@@ -2,21 +2,24 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  background-color: var(--bg-color, #000028);
-}
-
-.header {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  align-items: center;
-  justify-content: center;
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* изменить макс инлайн сайз потом */
-  max-inline-size: 375px;
+  background-attachment: fixed;
+  background-color: var(--bg-color, #000028);
+}
+
+
+
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
   padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  block-size: max(100dvb, 668px);
+  max-inline-size: 100%;
 }
 /* второй класс хэдэра */
 .decorated-zone {
@@ -28,12 +31,12 @@
   content: "";
   display: block;
   /* поправить чем то резиновым */
-  top:10px;
-  right: 10px;
+  top: clamp(10px, 2.7vw, 20px);
+  right: clamp(10px, 2.7vw, 20px);
   inline-size: 25px;
   block-size: 25px;
-  border-top: 1px solid var(--button-color);
-  border-right: 1px solid var(--button-color);
+  border-block-start: 1px solid var(--button-color, #FF0070);
+  border-inline-end: 1px solid var(--button-color, #FF0070);
 }
 
 .decorated-zone::after {
@@ -41,22 +44,23 @@
   content: "";
   display: block;
   /* поправить пиксели чем то резиновым */
-  bottom: 10px;
-  left: 10px;
+  bottom: clamp(10px, 2.7vw, 20px);
+  left: clamp(10px, 2.7vw, 20px);
   inline-size: 25px;
   block-size: 25px;
-  border-bottom: 1px solid var(--button-color);
-  border-left: 1px solid var(--button-color);
+  border-block-end: 1px solid var(--button-color, #FF0070);
+  border-inline-start: 1px solid var(--button-color, #FF0070);
 }
 
 .header__rec-label {
   display: flex;
   gap: 10px;
   position: absolute;
-  /* поправить пиксели чем то резиновым */
-  top: 12px;
-  right: 22px;
-  color: var(--button-color);
+  top: clamp(10px, 2.67vw, 20px);
+  /* проверить на пиксель перфект хз как на макете понять */
+  right: clamp(20px, 3.8vw, 35px);
+  color: var(--button-color, #FF0070);
+  font-size: var(--font-size-base, 18px);
 }
 
 .header__rec-label::after {
@@ -64,40 +68,54 @@
   display: block;
   width: 9px;
   height: 9px;
-  background-color: var(--button-color);
+  background-color: var(--button-color, #FF0070);
   border-radius: 50%;
   align-self: center;
-  box-shadow: 0px 0px 4px 2px var(--button-color);
+  box-shadow: 0px 0px 4px 2px var(--button-color, #FF0070);
 }
 
 .header__theme-menu {
   justify-self: end;
-  /* заменить чем то нормальным */
-  margin-top: 63px;
-  margin-bottom: 50px;
+  /* margin-block-start: 63px; */
+  /* margin-block-start: clamp(63px, 25vw, 170px); */
+  /* margin-block-end: 65px; */
+  /* margin-block-end: clamp(65px, 25vw, 175px); */
+  /* последние расчеты паддинга внизу */
+  /* padding-block-start: clamp(3.938rem, 27.226vw - 2.444rem, 10.625rem); */
+  /* padding-block-end: clamp(4.063rem, 27.99vw - 2.498rem, 10.938rem); */
+
 }
 
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 11px;
-}
-
-.header__theme-menu-item {
-
+  gap: clamp(11px, 0.0157vw + 5px, 23px);
 }
 
 .header__theme-menu-button {
   background-color: transparent;
-  color: var(--button-color);
+  color: var(--button-color, #FF0070);
+  font-size: var(--font-size-base, 18px);
   border: none;
   text-transform: lowercase;
-  font-size: 18px;
   font-weight: 400;
   line-height: 18px;
   text-align: center;
-  width: 70px;
-  height: 26px;
+  inline-size: 70px;
+  block-size: 26px;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+
+  border-block-end: 1px solid var(--button-color, #FF0070);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid #FF007066;
 }
 
 .header__theme-menu-button_type_light {
@@ -105,7 +123,7 @@
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--button-color);
+  outline: 1px solid var(--button-color, #FF0070);
 }
 
 .header__theme-menu-button_type_auto {
@@ -119,23 +137,242 @@
 .header__title {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-weight: 700;
-  line-height: 95.7px;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
+  line-height: clamp(95.7px, calc(5vw + 40px), 129.53px);
   color: var(--title-color, #DB00FF);
   text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
 }
 
-.header__subtitle {
-  font-size: 18px;
+.header__text {
   font-weight: 700;
-  line-height: 23.4px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
+  justify-self: end;
+  max-inline-size: clamp(355px, 47.5vw, 491px);
+
 }
 
 .title-decor {
-  background-color: var(--bg-accent-color, #FF0070);
+  background-color: var(--accent-color, #FF0070);
   color: var(--primary-subtitle-color, #000028);
 }
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  /* gap: clamp(50px, 7.63vw, 80px); */
+  gap: clamp(3.125rem, 7.634vw + 1.336rem, 5rem);
+}
+
+.section {
+  display: grid;
+  gap: var(--gap-medium, 20px);
+}
+
+
+.reasons {
+  padding-block-start: clamp(31px, 4vw + 16px, 41px);
+}
+
+.sections__title {
+  font-weight: 700;
+  text-align: left;
+  color: var(--secondary-subtitle-color, #FF0070);
+}
+
+.reasons__block {
+  display: grid;
+  gap: var(--gap-base, 10px);
+}
+
+.sections__subtitle {
+  font-weight: 700;
+  text-align: left;
+  text-decoration-skip-ink: none;
+  
+}
+
+.sections__text {
+  font-weight: 400;
+  text-align: left;
+  text-decoration-skip-ink: none;
+  color: var(--main-text-color, #F1B2CE);
+
+}
+
+.links-decor {
+  text-decoration: none;
+  text-shadow: 2px 1.5px 0 var(--accent-color, #FF0070);
+}
+
+.links-decor:hover {
+  border-bottom: 1px solid;
+}
+
+.links-decor:focus-visible {
+  outline: 1px solid;
+}
+
+.factors__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-base, 10px);
+}
+
+.tips__block {
+  display: grid;
+  gap: var(--gap-medium, 20px);
+}
+
+.tips__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-base, 10px);
+}
+
+.tips__item-title {
+  font-weight: 400;
+  text-align: left;
+}
+
+.gallery {
+  gap: clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem);
+  padding-block-end: 30px;
+}
+
+.gallery__image {
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.footer {
+  block-size: max(100dvb, 640px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: clamp(95.7px, 7vw + 40px, 129.53px);
+  text-align: center;
+  text-decoration-skip-ink: none;
+  color: var(--title-color, #DB00FF);
+  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
+
+}
+
+@media (width >= 780px) {
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    margin-left: -19px;
+  }
+  
+  .section:last-child {
+    /* отспут для декоратед зон для футера */
+    margin-block-end: 9px; 
+  }
+
+  .reasons {
+    grid-template-columns: 30.7vw 1fr;
+  }
+
+  .reasons__title {
+    grid-column: 1;
+  }
+
+  .reasons__block {
+    grid-column: 2;
+  }
+
+  .factors__title {
+    max-inline-size: 236px;
+  }
+
+  .tips {
+    grid-template-columns: 30.7vw 1fr;
+  }
+
+  .tips__title {
+    grid-column: 1;
+  }
+
+  .tips__block {
+    grid-column: 2;
+  }
+
+  .gallery {
+    /* grid-template-columns: 229px 230px 229px; Три колонки */
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .gallery__title {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .sunset-image {
+    grid-column: 1 / span 2; /* Занимает первые две колонки */
+    grid-row: 2; /* Вторая строка */
+  }
+  
+  .ice-cream-image {
+  grid-column: 3; /* Третья колонка */
+  grid-row: 2 / span 2; /* Занимает две строки */
+  }
+  
+  .tape-image {
+  grid-column: 1; /* Первая колонка */
+  grid-row: 3 / span 2; /* Занимает две строки */
+  }
+  
+  .books-image {
+  grid-column: 2; /* Вторая колонка */
+  grid-row: 3; /* третья строка */
+  }
+  
+  .street-image {
+  grid-column: 2 / span 2; /* Занимает две колонки */
+  grid-row: 4; /* четвертя строка */
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+}
+
+@media (width >= 1024px) {
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__text {
+    margin-top: 16px;
+  }
+
+  .factors {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .factors__title {
+    max-inline-size: 100%;
+  }
+
+  .factors__block {
+    grid-row-start: 2;
+  }
+
+}
+
+
