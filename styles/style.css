@@ -2,16 +2,13 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-color: var(--bg-color, #000028);
   background-image: var(--bg-image);
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: var(--bg-color, #000028);
 }
-
-
-
 
 .header {
   display: grid;
@@ -21,44 +18,44 @@
   block-size: max(100dvb, 668px);
   max-inline-size: 100%;
 }
-/* второй класс хэдэра */
+
 .decorated-zone {
   position: relative;
 }
 
 .decorated-zone::before {
-  position: absolute;
   content: "";
-  display: block;
+  position: absolute;
   /* поправить чем то резиновым */
   top: clamp(10px, 2.7vw, 20px);
   right: clamp(10px, 2.7vw, 20px);
+  display: block;
+  border-inline-end: 1px solid var(--button-color, #FF0070);
+  border-block-start: 1px solid var(--button-color, #FF0070);
   inline-size: 25px;
   block-size: 25px;
-  border-block-start: 1px solid var(--button-color, #FF0070);
-  border-inline-end: 1px solid var(--button-color, #FF0070);
 }
 
 .decorated-zone::after {
-  position: absolute;
   content: "";
-  display: block;
+  position: absolute;
   /* поправить пиксели чем то резиновым */
   bottom: clamp(10px, 2.7vw, 20px);
   left: clamp(10px, 2.7vw, 20px);
+  display: block;
+  border-inline-start: 1px solid var(--button-color, #FF0070);
+  border-block-end: 1px solid var(--button-color, #FF0070);
   inline-size: 25px;
   block-size: 25px;
-  border-block-end: 1px solid var(--button-color, #FF0070);
-  border-inline-start: 1px solid var(--button-color, #FF0070);
 }
 
 .header__rec-label {
-  display: flex;
-  gap: 10px;
   position: absolute;
   top: clamp(10px, 2.67vw, 20px);
   /* проверить на пиксель перфект хз как на макете понять */
-  right: clamp(20px, 3.8vw, 35px);
+  right: clamp(20px, 3.8vw, 30px);
+  display: flex;
+  gap: 10px;
   color: var(--button-color, #FF0070);
   font-size: var(--font-size-base, 18px);
 }
@@ -66,12 +63,12 @@
 .header__rec-label::after {
   content: "";
   display: block;
+  align-self: center;
   width: 9px;
   height: 9px;
-  background-color: var(--button-color, #FF0070);
   border-radius: 50%;
-  align-self: center;
   box-shadow: 0px 0px 4px 2px var(--button-color, #FF0070);
+  background-color: var(--button-color, #FF0070);
 }
 
 .header__theme-menu {
@@ -83,7 +80,6 @@
   /* последние расчеты паддинга внизу */
   /* padding-block-start: clamp(3.938rem, 27.226vw - 2.444rem, 10.625rem); */
   /* padding-block-end: clamp(4.063rem, 27.99vw - 2.498rem, 10.938rem); */
-
 }
 
 .header__theme-menu-list {
@@ -93,14 +89,14 @@
 }
 
 .header__theme-menu-button {
-  background-color: transparent;
-  color: var(--button-color, #FF0070);
-  font-size: var(--font-size-base, 18px);
   border: none;
-  text-transform: lowercase;
+  color: var(--button-color, #FF0070);
   font-weight: 400;
+  font-size: var(--font-size-base, 18px);
   line-height: 18px;
   text-align: center;
+  text-transform: lowercase;
+  background-color: transparent;
   inline-size: 70px;
   block-size: 26px;
 }
@@ -110,7 +106,6 @@
 }
 
 .header__theme-menu-button:focus-visible {
-
   border-block-end: 1px solid var(--button-color, #FF0070);
 }
 
@@ -123,6 +118,7 @@
 }
 
 .header__theme-menu-button_active {
+  pointer-events: none;
   outline: 1px solid var(--button-color, #FF0070);
 }
 
@@ -135,33 +131,31 @@
 }
 
 .header__title {
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  font-weight: 700;
-  line-height: clamp(95.7px, calc(5vw + 40px), 129.53px);
   color: var(--title-color, #DB00FF);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: clamp(95.7px, calc(5vw + 40px), 129.53px);
   text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
 }
 
 .header__text {
+  justify-self: end;
   font-weight: 700;
   text-align: left;
-  justify-self: end;
-  max-inline-size: clamp(355px, 47.5vw, 491px);
-
+  max-inline-size: clamp(355px, 47.8vw, 491px);
 }
 
 .title-decor {
-  background-color: var(--accent-color, #FF0070);
   color: var(--primary-subtitle-color, #000028);
+  background-color: var(--accent-color, #FF0070);
 }
-
 
 .content {
   display: flex;
   flex-direction: column;
-  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   /* gap: clamp(50px, 7.63vw, 80px); */
   gap: clamp(3.125rem, 7.634vw + 1.336rem, 5rem);
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
 .section {
@@ -175,9 +169,9 @@
 }
 
 .sections__title {
+  color: var(--secondary-subtitle-color, #FF0070);
   font-weight: 700;
   text-align: left;
-  color: var(--secondary-subtitle-color, #FF0070);
 }
 
 .reasons__block {
@@ -193,10 +187,10 @@
 }
 
 .sections__text {
+  color: var(--main-text-color, #F1B2CE);
   font-weight: 400;
   text-align: left;
   text-decoration-skip-ink: none;
-  color: var(--main-text-color, #F1B2CE);
 
 }
 
@@ -241,35 +235,35 @@
 }
 
 .gallery__image {
-  block-size: 100%;
-  inline-size: 100%;
   object-fit: cover;
   object-position: center;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 
 .footer {
-  block-size: max(100dvb, 640px);
-  display: flex;
-  align-items: center;
+  display: grid;
   justify-content: center;
+  align-items: center;
+  block-size: max(100dvb, 640px);
 }
 
 .footer__title {
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  color: var(--title-color, #DB00FF);
   font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: clamp(95.7px, 7vw + 40px, 129.53px);
   text-align: center;
   text-decoration-skip-ink: none;
-  color: var(--title-color, #DB00FF);
   text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
 
 }
 
-@media (width >= 780px) {
+@media (width >= 768px) {
   .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     margin-left: -19px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
   
   .section:last-child {
