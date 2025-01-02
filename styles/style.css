@@ -104,8 +104,8 @@
 }
 
 .header__theme-menu-button_active {
-  pointer-events: none;
   outline: 1px solid var(--button-color, #FF0070);
+  pointer-events: none;
 }
 
 .header__title {
@@ -239,7 +239,7 @@
   }
   
   .section:last-child {
-    margin-block-end: 9px; 
+    margin-block-end: 9px;
   }
 
   .reasons {
