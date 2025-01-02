@@ -42,7 +42,7 @@
     --accent-color: #FF8DCB;    
   }
 
-  .theme-light .header__rec-label {
+  .header__rec-label {
     display: none;
   }
 }

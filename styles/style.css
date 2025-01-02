@@ -26,7 +26,6 @@
 .decorated-zone::before {
   content: "";
   position: absolute;
-  /* поправить чем то резиновым */
   top: clamp(10px, 2.7vw, 20px);
   right: clamp(10px, 2.7vw, 20px);
   display: block;
@@ -39,7 +38,6 @@
 .decorated-zone::after {
   content: "";
   position: absolute;
-  /* поправить пиксели чем то резиновым */
   bottom: clamp(10px, 2.7vw, 20px);
   left: clamp(10px, 2.7vw, 20px);
   display: block;
@@ -52,7 +50,6 @@
 .header__rec-label {
   position: absolute;
   top: clamp(10px, 2.67vw, 20px);
-  /* проверить на пиксель перфект хз как на макете понять */
   right: clamp(20px, 3.8vw, 30px);
   display: flex;
   gap: 10px;
@@ -73,13 +70,6 @@
 
 .header__theme-menu {
   justify-self: end;
-  /* margin-block-start: 63px; */
-  /* margin-block-start: clamp(63px, 25vw, 170px); */
-  /* margin-block-end: 65px; */
-  /* margin-block-end: clamp(65px, 25vw, 175px); */
-  /* последние расчеты паддинга внизу */
-  /* padding-block-start: clamp(3.938rem, 27.226vw - 2.444rem, 10.625rem); */
-  /* padding-block-end: clamp(4.063rem, 27.99vw - 2.498rem, 10.938rem); */
 }
 
 .header__theme-menu-list {
@@ -113,21 +103,9 @@
   outline: 1px solid #FF007066;
 }
 
-.header__theme-menu-button_type_light {
-
-}
-
 .header__theme-menu-button_active {
   pointer-events: none;
   outline: 1px solid var(--button-color, #FF0070);
-}
-
-.header__theme-menu-button_type_auto {
-
-}
-
-.header__theme-menu-button_type_dark {
-
 }
 
 .header__title {
@@ -153,7 +131,6 @@
 .content {
   display: flex;
   flex-direction: column;
-  /* gap: clamp(50px, 7.63vw, 80px); */
   gap: clamp(3.125rem, 7.634vw + 1.336rem, 5rem);
   padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
@@ -162,7 +139,6 @@
   display: grid;
   gap: var(--gap-medium, 20px);
 }
-
 
 .reasons {
   padding-block-start: clamp(31px, 4vw + 16px, 41px);
@@ -183,7 +159,6 @@
   font-weight: 700;
   text-align: left;
   text-decoration-skip-ink: none;
-  
 }
 
 .sections__text {
@@ -191,7 +166,6 @@
   font-weight: 400;
   text-align: left;
   text-decoration-skip-ink: none;
-
 }
 
 .links-decor {
@@ -241,7 +215,6 @@
   inline-size: 100%;
 }
 
-
 .footer {
   display: grid;
   justify-content: center;
@@ -257,7 +230,6 @@
   text-align: center;
   text-decoration-skip-ink: none;
   text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
-
 }
 
 @media (width >= 768px) {
@@ -267,7 +239,6 @@
   }
   
   .section:last-child {
-    /* отспут для декоратед зон для футера */
     margin-block-end: 9px; 
   }
 
@@ -300,7 +271,6 @@
   }
 
   .gallery {
-    /* grid-template-columns: 229px 230px 229px; Три колонки */
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -310,38 +280,36 @@
   }
 
   .sunset-image {
-    grid-column: 1 / span 2; /* Занимает первые две колонки */
-    grid-row: 2; /* Вторая строка */
+    grid-column: 1 / span 2;
+    grid-row: 2;
   }
   
   .ice-cream-image {
-  grid-column: 3; /* Третья колонка */
-  grid-row: 2 / span 2; /* Занимает две строки */
+  grid-column: 3;
+  grid-row: 2 / span 2;
   }
   
   .tape-image {
-  grid-column: 1; /* Первая колонка */
-  grid-row: 3 / span 2; /* Занимает две строки */
+  grid-column: 1;
+  grid-row: 3 / span 2;
   }
   
   .books-image {
-  grid-column: 2; /* Вторая колонка */
-  grid-row: 3; /* третья строка */
+  grid-column: 2;
+  grid-row: 3;
   }
   
   .street-image {
-  grid-column: 2 / span 2; /* Занимает две колонки */
-  grid-row: 4; /* четвертя строка */
+  grid-column: 2 / span 2;
+  grid-row: 4;
   }
 
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-
 }
 
 @media (width >= 1024px) {
-
   .header__theme-menu {
     justify-self: center;
     align-self: start;
@@ -366,7 +334,4 @@
   .factors__block {
     grid-row-start: 2;
   }
-
 }
-
-
