@@ -13,8 +13,9 @@
   --main-text-color: #F1B2CE;
   --accent-color: #FF0070;
   --font-size-base: 18px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
   --line-height-base: 23.4px;
   --gap-base: 10px;
   --gap-medium: 20px;
-  --gap-large: 50px;
 }
