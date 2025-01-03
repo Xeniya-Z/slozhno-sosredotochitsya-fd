@@ -75,7 +75,7 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(11px, 0.0157vw + 5px, 23px);
+  gap: clamp(11.5px, 0.0157vw + 5px, 23px);
 }
 
 .header__theme-menu-button {
@@ -88,7 +88,7 @@
   text-transform: lowercase;
   background-color: transparent;
   inline-size: 70px;
-  block-size: 26px;
+  block-size: 25px;
 }
 
 .header__theme-menu-button:focus {
@@ -119,7 +119,7 @@
 .header__text {
   justify-self: end;
   font-weight: var(--font-weight-bold, 700);
-  max-inline-size: clamp(355px, 47.8vw, 491px);
+  max-inline-size: max(355px, 47.4vw);
 }
 
 .title-decor {
@@ -140,7 +140,7 @@
 }
 
 .reasons {
-  padding-block-start: clamp(29px, 4vw + 16px, 40px);
+  margin-block-start: clamp(29px, 4vw + 16px, 40px);
 }
 
 .sections__title {
@@ -324,6 +324,7 @@
 
   .header__text {
     margin-block-start: 16px;
+    max-inline-size: max(355px, 47.95vw);
   }
 
   .factors {
