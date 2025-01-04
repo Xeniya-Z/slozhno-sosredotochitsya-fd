@@ -140,7 +140,7 @@
 }
 
 .reasons {
-  margin-block-start: clamp(1.813rem, 2.545vw + 1.216rem, 2.438rem);
+  margin-block-start: clamp(29px, 4vw + 16px, 40px);
 }
 
 .sections__title {
